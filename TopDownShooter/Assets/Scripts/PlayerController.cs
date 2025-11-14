@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float speed; //Controls player speed
     public Rigidbody rb; //Reference to player's rigidbody for movement
     public GameObject gun; //Reference to the gun that the player has
+    public PlayerInventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -122,18 +123,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(0f, 0f, angle);
         }
-    }
-
-
-    /// <summary>
-    /// Allows for the player to pick up new guns
-    /// </summary>
-    /// <param name="newGun"></param>
-    public void PickupGun(GameObject newGun)
-    {
-        gun = Instantiate(newGun, gun.transform);
-
-        gun.GetComponent<GunBase>().SetAmmoToFull();
     }
 
 }
