@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 99624036102779637}
   - component: {fileID: 7168514214152066750}
   - component: {fileID: 814294061672236836}
-  - component: {fileID: 8941329880284828292}
-  - component: {fileID: 6729960984307208310}
+  - component: {fileID: 3056619516739041541}
+  - component: {fileID: 6597901696579411066}
   m_Layer: 0
   m_Name: TestBullet
   m_TagString: Untagged
@@ -107,7 +107,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8941329880284828292
+--- !u!114 &3056619516739041541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damage: 0
---- !u!54 &6729960984307208310
+--- !u!54 &6597901696579411066
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

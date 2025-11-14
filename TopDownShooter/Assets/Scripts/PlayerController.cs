@@ -13,18 +13,19 @@ public class PlayerController : MonoBehaviour
 {
     private Vector3 direction; //Controls direction of player
     public float speed; //Controls player speed
-    private Rigidbody rb; //Reference to player's rigidbody for movement
+    public Rigidbody rb; //Reference to player's rigidbody for movement
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
-      
+    { 
+        
+        RotatePlayer();
     }
 
     private void FixedUpdate()
@@ -88,6 +89,35 @@ public class PlayerController : MonoBehaviour
         else
         {
             direction.y = 0;
+        }
+    }
+
+
+
+    private void RotatePlayer()
+    {
+        //Get the mouse's position on the screen, bottom left corner as 0,0
+        Vector3 mouseScreenPos = Input.mousePosition;
+        //print("Mouse Screen Position: " + mouseScreenPos);
+        //Set position with positive z-depth 
+        //No idea what this does but it makes everything work
+        mouseScreenPos.z = 10; 
+
+        //Converts screen position to world coordinates
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        //print("Mouse World Position: " + mouseWorldPos);
+
+        Vector3 directionToMouse = mouseWorldPos - transform.position;
+        //print("Vector from player to mouse: " +  directionToMouse);
+
+
+        float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+        //print("Angle of player to mouse: " + angle);
+
+        //Checks if mouse is not directly over player
+        if (directionToMouse != Vector3.zero)
+        {
+            transform.localEulerAngles = new Vector3(0f, 0f, angle);
         }
     }
 }
