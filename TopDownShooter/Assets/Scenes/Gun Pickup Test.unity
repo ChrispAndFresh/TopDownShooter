@@ -1095,7 +1095,7 @@ PrefabInstance:
     - target: {fileID: 716529559620298171, guid: 6441e770fc8986540ac92ece614c5561, type: 3}
       propertyPath: noGun
       value: 
-      objectReference: {fileID: 6233985182657160117, guid: 495b4e03686dcae47b1c2bcd80e085ad, type: 3}
+      objectReference: {fileID: 8927008515029460262, guid: 495b4e03686dcae47b1c2bcd80e085ad, type: 3}
     - target: {fileID: 716529559620298171, guid: 6441e770fc8986540ac92ece614c5561, type: 3}
       propertyPath: gunSlot
       value: 

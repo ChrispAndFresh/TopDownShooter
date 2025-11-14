@@ -41,12 +41,10 @@ public class PlayerInventory : MonoBehaviour
             //If there is an empty spot in the inventory
             if (gunInventory[i] == null)
             {
-                //Add gun to inventory
-                gunInventory[i] = gun;
-                //Set gun's ammo to full
+                //Creates the gun and adds it to inventory
+                gunInventory[i] = Instantiate(gun, gunSlot);
+                //Sets ammo to full
                 gunInventory[i].GetComponent<GunBase>().SetAmmoToFull();
-                //Creates the gun
-                Instantiate(gunInventory[i], gunSlot);
                 //Set trigger to end loop to true
                 success = true;
 
@@ -73,6 +71,7 @@ public class PlayerInventory : MonoBehaviour
             //If there is a gun in this inventory
             if (gunInventory[i] != null)
             {
+                print("Deactivated gun: " + i);
                 //Set gun in inventory space to false
                 gunInventory[i].gameObject.SetActive(false);
             }
@@ -87,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
     /// <param name="index"></param>
     private void SetGunToActive(int index)
     {
-        print("Gun set to active");
+        print("Gun set to active" + index);
         //Checks index is within range and there is a gun in inventory[index]
         if ((index < gunInventory.Length) && gunInventory[index] != null)
         {

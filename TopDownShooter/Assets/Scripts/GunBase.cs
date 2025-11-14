@@ -21,6 +21,24 @@ public class GunBase : MonoBehaviour
     public GameObject bulletPrefab; //Reference to the bullet each gun fires
 
 
+
+    public void GunFunctions()
+    {
+        if (canFire && (chamberAmmo > 0))
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Fire();
+                StartCoroutine(Cooldown());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+    }
+
     /// <summary>
     /// Template function to be overridden for each gun
     /// </summary>
