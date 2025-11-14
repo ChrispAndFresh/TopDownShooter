@@ -15,24 +15,18 @@ public class PlayerController : MonoBehaviour
     public float speed; //Controls player speed
     public Rigidbody rb; //Reference to player's rigidbody for movement
 
-    public GameObject gunSlot; //Reference to the gun slot that holds the gun
-    public GunBase heldGun; //Reference to the currently held gun
-    public PlayerInventory inventory;//Reference to player's inventory
-
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     { 
         RotatePlayer();
-        
     }
 
- 
 
     private void FixedUpdate()
     {
@@ -128,7 +122,5 @@ public class PlayerController : MonoBehaviour
             transform.localEulerAngles = new Vector3(0f, 0f, angle);
         }
     }
-
-
-    
+   
 }

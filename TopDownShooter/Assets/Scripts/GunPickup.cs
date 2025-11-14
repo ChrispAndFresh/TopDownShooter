@@ -12,9 +12,12 @@ public class GunPickup : MonoBehaviour
         if(other.GetComponent<PlayerInventory>())
         {
             //Adds gun to player's inventory
-            other.gameObject.GetComponent<PlayerInventory>().AddToInventory(gun);
-            //Sets pickup to deactive
-            gameObject.SetActive(false);
+            if (other.gameObject.GetComponent<PlayerInventory>().AddToInventory(gun))
+            {
+                //Sets pickup to deactive
+                gameObject.SetActive(false);
+            }
+            
         }
     }
 }
