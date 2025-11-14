@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3284617011829875417}
+  - component: {fileID: 8927008515029460262}
   m_Layer: 0
   m_Name: NoGun
   m_TagString: Untagged
@@ -31,3 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8927008515029460262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233985182657160117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266e0d7b912e5ef42b5fe3c0ded01737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chamberAmmo: 0
+  chamberAmmoMax: 0
+  ammoCount: 0
+  ammoMax: 0
+  cooldownTime: 0
+  canFire: 1
+  bulletPrefab: {fileID: 0}

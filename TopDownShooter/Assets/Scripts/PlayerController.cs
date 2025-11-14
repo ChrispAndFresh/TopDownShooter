@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction; //Controls direction of player
     public float speed; //Controls player speed
     public Rigidbody rb; //Reference to player's rigidbody for movement
-    public GameObject gun; //Reference to the gun that the player has
-    public PlayerInventory inventory;
+
+    public GameObject gunSlot; //Reference to the gun slot that holds the gun
+    public GunBase heldGun; //Reference to the currently held gun
+    public PlayerInventory inventory;//Reference to player's inventory
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        
         RotatePlayer();
+        
     }
+
+ 
 
     private void FixedUpdate()
     {
@@ -125,4 +129,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    
 }
