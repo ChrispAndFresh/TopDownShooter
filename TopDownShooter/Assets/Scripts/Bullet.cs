@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Chris Pimentel
+ * 11/13/25
+ * Controls behavior for bullets
+ */
+
 public class Bullet : MonoBehaviour
 {
     public float speed; //Controls bullet speed

@@ -12,7 +12,7 @@ public class TestGun : GunBase
 {
     private void Update()
     {
-        if (canFire)
+        if (canFire && (chamberAmmo > 0))
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -20,10 +20,16 @@ public class TestGun : GunBase
                 StartCoroutine(Cooldown());
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
     }
 
     public override void Fire()
     {
         Instantiate(bulletPrefab, transform.position, transform.rotation);
+        chamberAmmo--;
     }
 }

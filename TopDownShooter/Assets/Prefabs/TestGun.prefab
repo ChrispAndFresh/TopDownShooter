@@ -212,7 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875697b7af5057242ac17778793ce9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 10
-  ammoMax: 10
+  chamberAmmo: 0
+  chamberAmmoMax: 6
+  ammoCount: 0
+  ammoMax: 30
   cooldownTime: 0
+  canFire: 1
   bulletPrefab: {fileID: 5208949958650767601, guid: 0a2f946e332b59a449cccae227dce468, type: 3}
