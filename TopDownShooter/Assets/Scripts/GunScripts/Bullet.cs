@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Moves the bullet forward
         transform.Translate(sprayOffset * speed * Time.deltaTime);
     }
 
@@ -37,7 +38,8 @@ public class Bullet : MonoBehaviour
         //If colliding with enemy, damage it
 
         //Checks if what is colliding should not destroy bullets
-        if (other.gameObject.GetComponent<DontDestroyBullets>() == null && other.GetComponent<Bullet>() == null)
+        if (other.gameObject.GetComponent<DontDestroyBullets>() == null && other.GetComponent<Bullet>() == null
+         && other.gameObject.GetComponent<GunPickup>() == null && other.GetComponent<PlayerController>() == null)
         {
             //Destroy bullet on contact
             Destroy(gameObject);
