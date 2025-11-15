@@ -23,7 +23,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If colliding with enemy, damage it
 
+        //Destroy bullet on contact
         Destroy(gameObject);
     }
 }

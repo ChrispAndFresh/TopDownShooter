@@ -17,11 +17,18 @@ public class GunBase : MonoBehaviour
     public int ammoMax; //Max ammount of bullets the gun can have
 
     public float cooldownTime; //Determines how long it takes to fire the gun agian
-    public bool canFire = true; //Used to dictate when a gun can and cannot fire
+    private bool canFire = true; //Used to dictate when a gun can and cannot fire
     public GameObject bulletPrefab; //Reference to the bullet each gun fires
 
+    public Transform firePoint; //Where the bullet spawns
+    public Transform handPoint; //Where the player holds the gun
+
+    public UI_Display ammoOnUI; //Reference to ammo count on UI
 
 
+    /// <summary>
+    /// Allows for basic functions of gun, firing and reloading
+    /// </summary>
     public void GunFunctions()
     {
         if (canFire && (chamberAmmo > 0))
@@ -44,10 +51,15 @@ public class GunBase : MonoBehaviour
     /// </summary>
     public virtual void Fire()
     {
-        if (chamberAmmo > 0)
-            chamberAmmo--;
+        CreateBullet();
+        ammoOnUI.UpdateAmmoOnUI(chamberAmmo, ammoCount);
     }
     
+    public virtual void CreateBullet()
+    {
+        Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        --chamberAmmo;
+    }
 
     /// <summary>
     /// Sets ammo in gun to full
@@ -64,7 +76,6 @@ public class GunBase : MonoBehaviour
     /// </summary>
     public void Reload()
     {
-
 
         int reloadAmount = chamberAmmoMax - chamberAmmo;
 

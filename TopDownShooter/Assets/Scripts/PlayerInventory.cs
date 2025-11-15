@@ -13,11 +13,12 @@ public class PlayerInventory : MonoBehaviour
     //Array to hold guns in inventory
     public GunBase[] gunInventory;
     //Starting size for inventory
-    public int maxInventory = 5;
+    public int maxInventory = 10;
 
     public GunBase noGun; //Reference to "gun" in player's starting inventory
     public Transform gunSlot; //Reference to where guns are held on the player
 
+    public UI_Display ammoOnUI; //Reference to UI to update ammo count
 
     void Start()
     {
@@ -25,6 +26,12 @@ public class PlayerInventory : MonoBehaviour
         gunInventory = new GunBase[maxInventory];
         //Sets first gun in inventory as starting "gun"
         AddToInventory(noGun);
+    }
+
+
+    private void Update()
+    {
+        SetGunInHand();
     }
 
 
@@ -56,6 +63,141 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return success;
+    }
+
+
+
+    private void SetGunInHand()
+    {
+        //if player presses 0, switch to gun in slot 0
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[0] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(0);
+            }
+        }
+
+        //if player presses 1, switch to gun in slot 1
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            //If slot 1 has a gun, switch guns
+            if (gunInventory[1] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(1);
+            }
+        }
+
+        //if player presses 2, switch to gun in slot 2
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            //If slot 2 has a gun, switch guns
+            if (gunInventory[2] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(2);
+            }
+        }
+
+        //if player presses 3, switch to gun in slot 3
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            //If slot 3 has a gun, switch guns
+            if (gunInventory[3] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(3);
+            }
+        }
+
+        //if player presses 4, switch to gun in slot 4
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[4] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(4);
+            }
+        }
+
+        //if player presses 5, switch to gun in slot 5
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            //If slot 5 has a gun, switch guns
+            if (gunInventory[5] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(5);
+            }
+        }
+
+        //if player presses 6, switch to gun in slot 6
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[6] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(6);
+            }
+        }
+
+        //if player presses 7, switch to gun in slot 7
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[7] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(7);
+            }
+        }
+
+        //if player presses 8, switch to gun in slot 8
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[8] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(8);
+            }
+        }
+
+        //if player presses 9, switch to gun in slot 9
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            //If slot 0 has a gun, switch guns
+            if (gunInventory[9] != null)
+            {
+                //Sets all guns to false
+                SetAllGunsToFalse();
+                //Sets new gun to active
+                SetGunToActive(9);
+            }
+        }
     }
 
 
@@ -91,6 +233,9 @@ public class PlayerInventory : MonoBehaviour
         if ((index < gunInventory.Length) && gunInventory[index] != null)
         {
             gunInventory[index].gameObject.SetActive(true);
+
+            //Update UI
+            ammoOnUI.UpdateAmmoOnUI(gunInventory[index].chamberAmmo, gunInventory[index].ammoCount);
         }
     }
 }
