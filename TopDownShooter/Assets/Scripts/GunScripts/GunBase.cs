@@ -21,7 +21,6 @@ public class GunBase : MonoBehaviour
     public GameObject bulletPrefab; //Reference to the bullet each gun fires
 
     public Transform firePoint; //Where the bullet spawns
-    public Transform handPoint; //Where the player holds the gun
 
     //public UI_Display ammoOnUI; //Reference to ammo count on UI
 
@@ -52,13 +51,17 @@ public class GunBase : MonoBehaviour
     public virtual void Fire()
     {
         CreateBullet();
+        --chamberAmmo;
         //ammoOnUI.UpdateAmmoOnUI(chamberAmmo, ammoCount);
     }
     
+
+    /// <summary>
+    /// Creates one instance of a bullt
+    /// </summary>
     public virtual void CreateBullet()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        --chamberAmmo;
     }
 
     /// <summary>

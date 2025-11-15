@@ -10,21 +10,24 @@ using UnityEngine;
 
 public class Shotgun : GunBase
 {
+    //How many bullets the shotgun creates each fire
+    public int bulletNumber; 
+
     // Update is called once per frame
     void Update()
     {
         GunFunctions();
     }
 
+    /// <summary>
+    /// When shotgun fires, create 6 bullets instead of 1
+    /// </summary>
     public override void CreateBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        --chamberAmmo;
+        for (int i = 0; i < bulletNumber; i++)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 
 
