@@ -107,7 +107,7 @@ public class GunBase : MonoBehaviour
     /// Controls cooldown for each gun
     /// </summary>
     /// <returns></returns>
-    public IEnumerator Cooldown()
+    public virtual IEnumerator Cooldown()
     {
         //Player can no longer fire gun
         canFire = false;
