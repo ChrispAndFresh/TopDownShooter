@@ -17,13 +17,13 @@ public class GunBase : MonoBehaviour
     public int ammoMax; //Max ammount of bullets the gun can have
 
     public float cooldownTime; //Determines how long it takes to fire the gun agian
-    private bool canFire = true; //Used to dictate when a gun can and cannot fire
+    public bool canFire = true; //Used to dictate when a gun can and cannot fire
     public GameObject bulletPrefab; //Reference to the bullet each gun fires
 
     public Transform firePoint; //Where the bullet spawns
     public Transform handPoint; //Where the player holds the gun
 
-    public UI_Display ammoOnUI; //Reference to ammo count on UI
+    //public UI_Display ammoOnUI; //Reference to ammo count on UI
 
 
     /// <summary>
@@ -52,7 +52,7 @@ public class GunBase : MonoBehaviour
     public virtual void Fire()
     {
         CreateBullet();
-        ammoOnUI.UpdateAmmoOnUI(chamberAmmo, ammoCount);
+        //ammoOnUI.UpdateAmmoOnUI(chamberAmmo, ammoCount);
     }
     
     public virtual void CreateBullet()

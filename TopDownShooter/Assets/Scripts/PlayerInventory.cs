@@ -233,6 +233,7 @@ public class PlayerInventory : MonoBehaviour
         if ((index < gunInventory.Length) && gunInventory[index] != null)
         {
             gunInventory[index].gameObject.SetActive(true);
+            gunInventory[index].canFire = true;
 
             //Update UI
             ammoOnUI.UpdateAmmoOnUI(gunInventory[index].chamberAmmo, gunInventory[index].ammoCount);

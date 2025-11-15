@@ -36,7 +36,11 @@ public class Bullet : MonoBehaviour
     {
         //If colliding with enemy, damage it
 
-        //Destroy bullet on contact
-        Destroy(gameObject);
+        //Checks if what is colliding should not destroy bullets
+        if (other.gameObject.GetComponent<DontDestroyBullets>() == null && other.GetComponent<Bullet>() == null)
+        {
+            //Destroy bullet on contact
+            Destroy(gameObject);
+        }
     }
 }
