@@ -29,7 +29,7 @@ public class GunBase : MonoBehaviour
     /// <summary>
     /// Allows for basic functions of gun, firing and reloading
     /// </summary>
-    public void GunFunctions()
+    public virtual void GunFunctions()
     {
         if (canFire && (chamberAmmo > 0))
         {
@@ -57,7 +57,7 @@ public class GunBase : MonoBehaviour
     
     public virtual void CreateBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         --chamberAmmo;
     }
 
