@@ -44,7 +44,8 @@ public class GunBase : MonoBehaviour
     /// </summary>
     public virtual void Fire()
     {
-        chamberAmmo--;
+        if (chamberAmmo > 0)
+            chamberAmmo--;
     }
     
 

@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float speed; //Controls player speed
     public Rigidbody rb; //Reference to player's rigidbody for movement
 
+    public Transform gunSlot; //Reference to gun slot for animation purposes
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +122,18 @@ public class PlayerController : MonoBehaviour
         if (directionToMouse != Vector3.zero)
         {
             transform.localEulerAngles = new Vector3(0f, 0f, angle);
+        }
+
+
+        //If player is rotated between 90 and 180 degrees, flip gun
+        if (transform.localEulerAngles.z <= 270 && transform.localEulerAngles.z >= 90)
+        {
+            gunSlot.localEulerAngles = new Vector3(180f, 0f, 0f);
+        }
+        //If player is rotated between 90 and -90 degrees, unfip gun
+        else
+        {
+            gunSlot.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
    
