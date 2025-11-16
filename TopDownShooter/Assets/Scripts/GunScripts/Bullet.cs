@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
     public float spray; //How much a bullet will spray when fired
     private Vector3 sprayOffset;
 
-
     private void Awake()
     {
         //Gives bullet spray
@@ -36,6 +35,10 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //If colliding with enemy, damage it
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            other.gameObject.GetComponent<Enemy>().GetDamaged(damage);
+        }
 
         //Checks if what is colliding should not destroy bullets
         if (other.gameObject.GetComponent<DontDestroyBullets>() == null && other.GetComponent<Bullet>() == null

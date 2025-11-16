@@ -22,6 +22,8 @@ public class GunBase : MonoBehaviour
 
     public Transform firePoint; //Where the bullet spawns
 
+    public int refillAmount; //How much ammo a gun gains from an ammo drop
+
     //public UI_Display ammoOnUI; //Reference to ammo count on UI
 
 
@@ -102,6 +104,22 @@ public class GunBase : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// When player collects a ammo refill, refill ammo
+    /// </summary>
+    public virtual void RefillAmmo()
+    {
+        //adds refill amount to ammo
+        ammoCount += refillAmount;
+        chamberAmmo = chamberAmmoMax;
+
+        //Caps ammo at max
+        if (ammoCount > ammoMax)
+        {
+            ammoCount = ammoMax;
+        }
+    }
 
     /// <summary>
     /// Controls cooldown for each gun

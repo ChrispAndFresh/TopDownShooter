@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
 
     public UI_Display healthOnUI; //Reference to UI to update heatlh
     public int health;
+    public int maxHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         healthOnUI.UpdateHealthOnUI(health);
     }
 
@@ -139,5 +141,29 @@ public class PlayerController : MonoBehaviour
             gunSlot.localEulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
-   
+
+
+    /// <summary>
+    /// When the player gets damaged, subtract damage from health
+    /// </summary>
+    /// <param name="damage"></param>
+    public void GetDamaged(int damage)
+    {
+        health -= damage;
+        healthOnUI.UpdateHealthOnUI(health);
+    }
+
+
+    public void GetHealed(int healing)
+    {
+        health += healing;
+
+        //Caps health at maxHealth
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        healthOnUI.UpdateHealthOnUI(health);
+    }
 }

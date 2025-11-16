@@ -137,3 +137,4 @@ MonoBehaviour:
   canFire: 1
   bulletPrefab: {fileID: 7868920874047769101, guid: 6bd0565c310e2404da2a3a595e3118ce, type: 3}
   firePoint: {fileID: 6575076656263431708}
+  refillAmount: 5

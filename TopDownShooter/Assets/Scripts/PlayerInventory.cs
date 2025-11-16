@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class PlayerInventory : MonoBehaviour
     public Transform gunSlot; //Reference to where guns are held on the player
 
     public UI_Display ammoOnUI; //Reference to UI to update ammo count
+    private int currentIndex; //Reference to index of gun player is currently holding
+
 
     void Start()
     {
@@ -32,6 +35,9 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         SetGunInHand();
+
+        //Update UI
+        ammoOnUI.UpdateAmmoOnUI(gunInventory[currentIndex].chamberAmmo, gunInventory[currentIndex].ammoCount);
     }
 
 
@@ -59,6 +65,9 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(i);
+
+                //Update UI
+                currentIndex = i;
             }
         }
 
@@ -79,6 +88,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(0);
+                //Update UI
+                currentIndex = 0;
             }
         }
 
@@ -92,6 +103,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(1);
+                //Update UI
+                currentIndex = 1;
             }
         }
 
@@ -105,6 +118,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(2);
+                //Update UI
+                currentIndex = 2;
             }
         }
 
@@ -118,6 +133,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(3);
+                //Update UI
+                currentIndex = 3;
             }
         }
 
@@ -131,6 +148,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(4);
+                //Update UI
+                currentIndex = 4;
             }
         }
 
@@ -144,6 +163,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(5);
+                //Update UI
+                currentIndex = 5;
             }
         }
 
@@ -157,6 +178,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(6);
+                //Update UI
+                currentIndex = 6;
             }
         }
 
@@ -170,6 +193,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(7);
+                //Update UI
+                currentIndex = 7;
             }
         }
 
@@ -183,6 +208,8 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(8);
+                //Update UI
+                currentIndex = 8;
             }
         }
 
@@ -196,8 +223,11 @@ public class PlayerInventory : MonoBehaviour
                 SetAllGunsToFalse();
                 //Sets new gun to active
                 SetGunToActive(9);
+                //Update UI
+                currentIndex = 9;
             }
         }
+
     }
 
 
@@ -234,9 +264,16 @@ public class PlayerInventory : MonoBehaviour
         {
             gunInventory[index].gameObject.SetActive(true);
             gunInventory[index].canFire = true;
-
-            //Update UI
-            ammoOnUI.UpdateAmmoOnUI(gunInventory[index].chamberAmmo, gunInventory[index].ammoCount);
         }
+    }
+
+
+    /// <summary>
+    /// Refills gun player has in hand
+    /// </summary>
+    /// <param name="refill"></param>
+    public void RefillGun()
+    {
+        gunInventory[currentIndex].RefillAmmo();
     }
 }

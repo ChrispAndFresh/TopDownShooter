@@ -372,6 +372,7 @@ MonoBehaviour:
   canFire: 1
   bulletPrefab: {fileID: 2066095009191848515, guid: 92dd601b37ed3a84aa9b50116875bf3b, type: 3}
   firePoint: {fileID: 7178328818853762635}
+  refillAmount: 5
   chargeMax: 5
   chargeSlider: {fileID: 8331645886053589374}
 --- !u!1 &8088439673773200604

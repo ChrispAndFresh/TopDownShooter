@@ -169,7 +169,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 190, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3229994311674164689
 CanvasRenderer:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -141333525, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
+  m_Sprite: {fileID: -1388981767, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -244,7 +244,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250.00003, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6634130727529142924
 CanvasRenderer:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -141333525, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
+  m_Sprite: {fileID: -1388981767, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -572,7 +572,6 @@ MonoBehaviour:
   - {fileID: 9161803380834958834}
   - {fileID: 2282717951771527608}
   - {fileID: 6943555812877566716}
-  maxHealth: 10
 --- !u!1 &5254669395938643910
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +757,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 70, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2589618784914495042
 CanvasRenderer:
@@ -788,7 +787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -141333525, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
+  m_Sprite: {fileID: -1388981767, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -983,7 +982,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 130.00003, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2914020737397881971
 CanvasRenderer:
@@ -1013,7 +1012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -141333525, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
+  m_Sprite: {fileID: -1388981767, guid: 4aec6c5c2a38edd4a9303a4c6831661b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
