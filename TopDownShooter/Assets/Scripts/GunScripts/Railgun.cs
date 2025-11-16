@@ -13,6 +13,7 @@ public class Railgun : GunBase
     public float chargeTime; //Variable set in inspector to determine how long it takes to charge up the railgun
     private float actualChargeTime; //Actual variable used to determine chargeTime
     private float charge; //Determines percentage of charge time
+    private float chargePercent; //Value that gets passed to bullet
 
     public GameObject fauxBullet; //Used to represent bullet charge on screen
 
@@ -45,17 +46,18 @@ public class Railgun : GunBase
             {
                 ChargeGun();
             }
-            //Upon release, fire gun
-            if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                //Reset charge
-                charge = 0;
-                //Reset bullet sprite
-                fauxBullet.transform.localScale = new Vector3(0f, 0f, 1f);
-            
-                Fire();
-                StartCoroutine(Cooldown());
-            }
+        }
+
+        //Upon release, if there is charge, fire gun
+        if (Input.GetKeyUp(KeyCode.Mouse0) && charge > 0)
+        {
+            //Reset charge
+            charge = 0;
+            //Reset bullet sprite
+            fauxBullet.transform.localScale = new Vector3(0f, 0f, 1f);
+
+            Fire();
+            StartCoroutine(Cooldown());
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -79,14 +81,33 @@ public class Railgun : GunBase
             charge = actualChargeTime;
         }
 
-        float chargePercent = charge / actualChargeTime;
+        if (charge > 0 && (charge % 10 == 0))
+        {
+            chamberAmmo--;
+        }
+       
+        chargePercent = charge / actualChargeTime;
         fauxBullet.transform.localScale = new Vector3(chargePercent * 2, chargePercent * 2, 1f);
         print("Gun Charging: " + ((charge / actualChargeTime) * 100) + "%");
-    }
-    
 
-    public float PassChargePercent()
+    }
+
+
+    /// <summary>
+    /// Railgun no longer removes ammo on fire as it happens else where
+    /// </summary>
+    public override void Fire()
     {
-        return (charge / actualChargeTime);
+        CreateBullet();
+    }
+
+    //When bullet spawns, pass info
+    private void OnTriggerStay(Collider other)
+    {
+        //Checks if what is in the trigger is the railgun bullet
+        if (other.gameObject.GetComponent<RailgunBullet>())
+        {
+            other.gameObject.GetComponent<RailgunBullet>().AdjustBullet(chargePercent);
+        }
     }
 }

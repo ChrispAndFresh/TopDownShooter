@@ -26,6 +26,10 @@ public class BazookaBullet : MonoBehaviour
         StartCoroutine(RocketPause(pauseTime));
     }
 
+    private void OnDestroy()
+    {
+        
+    }
 
     private IEnumerator RocketPause(float pauseTime)
     {

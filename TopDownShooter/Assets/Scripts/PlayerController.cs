@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour
 
     public Transform gunSlot; //Reference to gun slot for animation purposes
 
+    public UI_Display healthOnUI; //Reference to UI to update heatlh
+    public int health;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        healthOnUI.UpdateHealthOnUI(health);
     }
 
     // Update is called once per frame
