@@ -14,6 +14,8 @@ public class UI_Display : MonoBehaviour
 {
     public TMP_Text ammoCount;
     public GameObject[] hearts;
+    public GameObject[] keys;
+    public GameObject bigKey;
 
     /// <summary>
     /// Sets numbers on UI to reflect ammo in gun
@@ -49,6 +51,44 @@ public class UI_Display : MonoBehaviour
         for (int i = 0; i < hearts.Length; i++)
         {
             hearts[i].SetActive(false);
+        }
+    }
+
+
+    /// <summary>
+    /// Sets the amount of Keys on UI
+    /// </summary>
+    /// <param name="keyAmount"></param>
+    public void SetKeysOnUI(int keyAmount)
+    {
+        for (int i = 0; i < keys.Length; i++)
+        {
+            if (i <  keyAmount)
+            {
+                keys[i].SetActive(true);
+            }
+            else
+            {
+                keys[i].SetActive(false);
+            }
+        }
+    }
+
+
+
+    /// <summary>
+    /// Shows on UI if player has the Big Key
+    /// </summary>
+    /// <param name="hasBigKey"></param>
+    public void SetBigKeyOnUI(bool hasBigKey)
+    {
+        if (hasBigKey)
+        {
+            bigKey.SetActive(true);
+        }
+        else
+        {
+            bigKey.SetActive(false);
         }
     }
 }

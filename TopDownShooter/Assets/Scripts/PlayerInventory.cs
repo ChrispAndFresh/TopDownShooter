@@ -19,8 +19,12 @@ public class PlayerInventory : MonoBehaviour
     public GunBase noGun; //Reference to "gun" in player's starting inventory
     public Transform gunSlot; //Reference to where guns are held on the player
 
-    public UI_Display ammoOnUI; //Reference to UI to update ammo count
+    public UI_Display playerUI; //Reference to UI to update ammo count and key count
     private int currentIndex; //Reference to index of gun player is currently holding
+
+    public int keys; //How many keys the player has
+    public bool bigKey; //If the player has the big key
+    public bool interacting; //Checks if the player is interacting with objects
 
 
     void Start()
@@ -29,6 +33,20 @@ public class PlayerInventory : MonoBehaviour
         gunInventory = new GunBase[maxInventory];
         //Sets first gun in inventory as starting "gun"
         AddToInventory(noGun);
+
+
+        //Player starts with no keys
+        keys = 0;
+        //Updates UI
+        playerUI.SetKeysOnUI(keys);
+
+        //Player starts without the big key
+        bigKey = false;
+        //Updates UI
+        playerUI.SetBigKeyOnUI(bigKey);
+
+        //Player does not start interacting with anything
+        interacting = false;
     }
 
 
@@ -37,7 +55,14 @@ public class PlayerInventory : MonoBehaviour
         SetGunInHand();
 
         //Update UI
-        ammoOnUI.UpdateAmmoOnUI(gunInventory[currentIndex].chamberAmmo, gunInventory[currentIndex].ammoCount);
+        playerUI.UpdateAmmoOnUI(gunInventory[currentIndex].chamberAmmo, gunInventory[currentIndex].ammoCount);
+
+        //When the player presses E, interact with objects
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(Interact());
+        }
+       
     }
 
 
@@ -264,6 +289,7 @@ public class PlayerInventory : MonoBehaviour
         {
             gunInventory[index].gameObject.SetActive(true);
             gunInventory[index].canFire = true;
+            currentIndex = index;
         }
     }
 
@@ -275,5 +301,84 @@ public class PlayerInventory : MonoBehaviour
     public void RefillGun()
     {
         gunInventory[currentIndex].RefillAmmo();
+    }
+
+
+
+    /// <summary>
+    /// When player collects a key, add to inventory
+    /// </summary>
+    public void AddKey()
+    {
+        keys++;
+        playerUI.SetKeysOnUI(keys);
+    }
+
+
+
+    /// <summary>
+    /// When player uses a key, remove from inventory
+    /// </summary>
+    public void RemoveKey()
+    {
+        keys--;
+        playerUI.SetKeysOnUI(keys);
+    }
+
+
+    /// <summary>
+    /// Checks if the player has keys
+    /// </summary>
+    /// <returns></returns>
+    public bool HasKey()
+    {
+        return (keys > 0);
+    }
+
+
+    /// <summary>
+    /// When player collects big key, add to inventory
+    /// </summary>
+    public void AddBigKey()
+    {
+        bigKey = true;
+        playerUI.SetBigKeyOnUI(bigKey);
+    }
+
+
+    /// <summary>
+    /// When player uses big key, remove from inventory
+    /// </summary>
+    public void RemoveBigKey()
+    {
+        bigKey = false;
+        playerUI.SetBigKeyOnUI(bigKey);
+    }
+
+
+    /// <summary>
+    /// Checks if player has the big key
+    /// </summary>
+    /// <returns></returns>
+    public bool HasBigKey()
+    {
+        return bigKey;
+    }
+
+
+    /// <summary>
+    /// Interacts with objects
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator Interact()
+    {
+        //Player interacts with objects
+        interacting = true;
+
+        //Wait a fraction of a second
+        yield return new WaitForSeconds(0.1f);
+
+        //Player is no longer interacting with objects
+        interacting = false;
     }
 }
