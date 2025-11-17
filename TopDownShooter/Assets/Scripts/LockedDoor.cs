@@ -30,6 +30,7 @@ public class LockedDoor : MonoBehaviour
                 other.gameObject.GetComponent<PlayerInventory>().RemoveKey();
                 //Allows for entering door
                 door.canUseDoor = true;
+                door.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
                 //Destroy Lock
                 Destroy(gameObject);

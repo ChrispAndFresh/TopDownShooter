@@ -30,6 +30,7 @@ public class BigLockedDoor : MonoBehaviour
                 other.gameObject.GetComponent<PlayerInventory>().RemoveBigKey();
                 //Allows for entering door
                 door.canUseDoor = true;
+                door.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
                 //Destroy Lock
                 Destroy(gameObject);
