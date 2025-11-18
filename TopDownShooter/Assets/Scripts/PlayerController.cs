@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour
     public Transform gunSlot; //Reference to gun slot for animation purposes
 
     public UI_Display healthOnUI; //Reference to UI to update heatlh
-    public int health;
-    public int maxHealth;
+    public int health; //Health of the player
+    public int maxHealth; //Maximum health of the player
+
+    public static Vector3 playerPos; //Refernce to the player's position for enemies
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     { 
         RotatePlayer();
+        playerPos = transform.position;
     }
 
 

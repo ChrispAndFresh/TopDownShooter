@@ -104,10 +104,8 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Resets enemy to starting location, health to max, and isActive to false
     /// </summary>
-    public void ResetEnemy()
+    public virtual void ResetEnemy()
     {
-        print("Enemy Reset");
-        
         health = maxHealth;
         transform.position = startingPos;
         isActive = false;
