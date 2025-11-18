@@ -1581,6 +1581,10 @@ PrefabInstance:
       propertyPath: ammoOnUI
       value: 
       objectReference: {fileID: 329415610}
+    - target: {fileID: 716529559620298171, guid: 6441e770fc8986540ac92ece614c5561, type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 329415610}
     - target: {fileID: 2468842493996753799, guid: 6441e770fc8986540ac92ece614c5561, type: 3}
       propertyPath: m_Name
       value: Player
