@@ -54,7 +54,6 @@ public class GunBase : MonoBehaviour
     {
         CreateBullet();
         --chamberAmmo;
-        //ammoOnUI.UpdateAmmoOnUI(chamberAmmo, ammoCount);
     }
     
 

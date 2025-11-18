@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -11,38 +12,75 @@ using UnityEngine;
 
 public class RoomCheck : MonoBehaviour
 {
-    public bool hasEnemies;
+    public List<Enemy> enemiesInRoom;
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<PlayerController>())
-        {
-            //print("enemy in room");
-            hasEnemies = true;
-        }
-
-        if (!other.gameObject.GetComponent<Enemy>() || other.gameObject.GetComponent<PlayerController>())
-        {
-            hasEnemies = false;
-        }
-  
-    }
+    public List<Enemy> respawnEnemies;
+    public List<Transform> spawnPoints;
 
     private void OnTriggerExit(Collider other)
     {
-       //Checks if the player has left the room
-       if (other.gameObject.GetComponent<PlayerController>())
+        if (other.gameObject.GetComponent<PlayerController>())
         {
-            if (hasEnemies)
+            CountEnemies();
+
+            for (int i = 0; i < enemiesInRoom.Count; i++)
             {
-                print("Resetting enemies in room");
+                if (!enemiesInRoom[i].gameObject.activeSelf)
+                {
+                    Destroy(enemiesInRoom[i].gameObject);
+                    enemiesInRoom.RemoveAt(i);
+                    i--;
+                }
+            }
+
+
+            if (enemiesInRoom.Count  > 0)
+            {
+                //print("Reset Enemies");
+                for (int i = 0; i < enemiesInRoom.Count; i++)
+                {
+                    enemiesInRoom[i].ResetEnemy();
+                }
             }
             else
             {
-                print("Respawning enemies in room");
+                print("Respawn Enemies");
+                for (int i = 0; i < respawnEnemies.Count; i++)
+                {
+                    enemiesInRoom.Add(Instantiate(respawnEnemies[i], spawnPoints[i].position, spawnPoints[i].rotation));
+                }
             }
-
-
         }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            print("Enemies in room: " + enemiesInRoom.Count);
+        }
+    }
+
+    private void CountEnemies()
+    {
+
+        int enabledEnemies = 0;
+        int disabledEnemies = 0;
+
+        for (int i = 0; i < enemiesInRoom.Count; i++)
+        {
+            if (enemiesInRoom[i].gameObject.activeSelf)
+            {
+                enabledEnemies++;
+            }
+            else
+            {
+                disabledEnemies++;
+            }
+        }
+
+        print("Active Enemies: " + enabledEnemies + " | Inactive Enemies: " + disabledEnemies);
+
     }
 }
