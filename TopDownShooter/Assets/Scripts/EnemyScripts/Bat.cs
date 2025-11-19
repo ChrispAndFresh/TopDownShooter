@@ -15,11 +15,13 @@ public class Bat : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        SetStartingValues();
         isChasing = false;
     }
 
     void Awake()
     {
+        SetStartingValues();
         isChasing = false;
     }
 
@@ -55,7 +57,7 @@ public class Bat : Enemy
             transform.position += Vector3.down * speed * Time.deltaTime;
         }
         //Moves the bat up
-        else if (transform.position.x < PlayerController.playerPos.x)
+        else if (transform.position.y < PlayerController.playerPos.y)
         {
             transform.position += Vector3.up * speed * Time.deltaTime;
         }

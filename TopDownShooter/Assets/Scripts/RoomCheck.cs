@@ -59,6 +59,9 @@ public class RoomCheck : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             print("Enemies in room: " + enemiesInRoom.Count);
+            print("Spawn Point: " + spawnPoints[0].position);
+            print("Enemy Reset Point: " + enemiesInRoom[0].startingPos);
+            print("Enemy location: " + enemiesInRoom[0].transform.position);
         }
     }
 

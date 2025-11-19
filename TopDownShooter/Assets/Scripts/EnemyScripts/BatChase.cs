@@ -11,43 +11,13 @@ using UnityEngine;
 
 public class BatChase : MonoBehaviour
 {
-    Bat bat;
-
-    private void Start()
-    {
-        bat = GetComponentInParent<Bat>();
-    }
-
-
-    private void Awake()
-    {
-        bat = GetComponentInParent<Bat>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         //Checks if what is entering is the player
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            print('1');
-            if (bat != null)
-            {
-                print('2');
-                bat.SetChasing(true);
-            }
+            GetComponentInParent<Bat>().SetChasing(true);
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        //Checks if what is entering is the player
-        if (other.gameObject.GetComponent<PlayerController>())
-        {
-            //Sets the bat enemy to stop chasing the player
-            if (bat != null)
-            {
-                bat.SetChasing(false);
-            }
-        }
-    }
 }

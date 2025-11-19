@@ -19,28 +19,19 @@ public class Enemy : MonoBehaviour
     public GameObject healthDrop; //Prefab of health drop
     public GameObject ammoDrop; //Prefab of ammo drop
 
-    private Vector3 startingPos; //Starting Position of enemy for resetting
+    public Vector3 startingPos; //Starting Position of enemy for resetting
 
     public bool isActive; //Determines if enemy is active or not
 
     //public Transform playerPosition; //Reference to player's location when enemy is active
 
-
-    private void Start()
+    public void SetStartingValues()
     {
         startingPos = transform.position;
         health = maxHealth;
         isActive = false;
     }
 
-    
-    private void Awake()
-    {
-        startingPos = transform.position;
-        health = maxHealth;
-        isActive = false;
-    }
-    
 
     private void OnBecameVisible()
     {
