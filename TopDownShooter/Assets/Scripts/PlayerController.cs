@@ -169,4 +169,18 @@ public class PlayerController : MonoBehaviour
 
         healthOnUI.UpdateHealthOnUI(health);
     }
+
+    /// <summary>
+    /// Increases the max HP of the player
+    /// </summary>
+    public void IncreaseHealth()
+    {
+
+        maxHealth += 2;
+        health = maxHealth;
+        healthOnUI.UpdateHealthOnUI(health);
+
+    }
+
+
 }
