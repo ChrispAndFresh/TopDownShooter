@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9188561931339313326}
   - component: {fileID: 8872077752935712157}
   - component: {fileID: 4049201144220309442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Skeloton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,6 +128,10 @@ MonoBehaviour:
   ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}
   startingPos: {x: 0, y: 0, z: 0}
   isActive: 0
+  bonePrefab: {fileID: 0}
+  pauseTime: 0
+  directionDelay: 0
+  projectileDelay: 0
 --- !u!54 &4049201144220309442
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,13 +12,6 @@ public class Bat : Enemy
 {
     public bool isChasing;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetStartingValues();
-        isChasing = false;
-    }
-
     void Awake()
     {
         SetStartingValues();

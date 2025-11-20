@@ -20,21 +20,6 @@ public class Skeleton : Enemy
     public float directionDelay; //Determines how long til skeleton changes direction
     public float projectileDelay; //Determines how long til skeleton throws a projectile
 
-    void Start()
-    {
-        SetStartingValues();
-
-        //Changes skeleton's direction
-        InvokeRepeating("ChangeDirections", 0, directionDelay);
-
-        //Skeleton throws projectiles 
-        InvokeRepeating("ThrowBone", 1, projectileDelay);
-
-        canMove = true; //Skeleton can move at the start
-
-        rb = GetComponent<Rigidbody>();
-    }
-
     void Awake()
     {
         SetStartingValues();
