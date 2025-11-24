@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3647922874260815537}
   - component: {fileID: 4508639212490130580}
   - component: {fileID: 146812840323001535}
+  - component: {fileID: -953273681355499996}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -205,5 +206,33 @@ MonoBehaviour:
   speed: 2
   healthDrop: {fileID: 5505103852017097608, guid: b532820158fa4f44e9f57b381e471a0f, type: 3}
   ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}
+  startingPos: {x: 0, y: 0, z: 0}
   isActive: 0
   isChasing: 0
+--- !u!54 &-953273681355499996
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225845786808885629}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0

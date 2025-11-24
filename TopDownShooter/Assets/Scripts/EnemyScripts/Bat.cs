@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -11,19 +12,31 @@ using UnityEngine;
 public class Bat : Enemy
 {
     public bool isChasing;
+    Rigidbody rb;
+    Vector3 moveDirection;
 
     void Awake()
     {
+        //Set position, health, and isActive
         SetStartingValues();
+        //Bat doesn't start out chasing
         isChasing = false;
+        //Get rigidbody reference for movement
+        rb = GetComponent<Rigidbody>();
+        moveDirection = Vector3.zero;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isChasing && isActive)
+        PickDirectionToMove();
+    }
+
+    private void FixedUpdate()
+    {
+        //Moves the enemy to the player
+        if (isActive)
         {
-            MoveToPlayer();
+            rb.MovePosition(transform.position + moveDirection * speed * Time.deltaTime);
         }
     }
 
@@ -36,23 +49,23 @@ public class Bat : Enemy
         //Moves the bat left 
         if (transform.position.x > PlayerController.playerPos.x)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
         }
         //Moves the bat right
         else if (transform.position.x < PlayerController.playerPos.x)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
         }
 
         //Moves the bat down
         if (transform.position.y > PlayerController.playerPos.y)
         {
-            transform.position += Vector3.down * speed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.down * speed * Time.deltaTime);
         }
         //Moves the bat up
         else if (transform.position.y < PlayerController.playerPos.y)
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            rb.MovePosition(transform.position + Vector3.up * speed * Time.deltaTime);
         }
     }
 
@@ -66,6 +79,39 @@ public class Bat : Enemy
         isChasing = willChase;
     }
 
+
+    void PickDirectionToMove()
+    {
+        //Moves the bat left 
+        if (transform.position.x > PlayerController.playerPos.x)
+        {
+            moveDirection.x = -1;
+        }
+        //Moves the bat right
+        else if (transform.position.x < PlayerController.playerPos.x)
+        {
+            moveDirection.x = 1;
+        }
+        else
+        {
+            moveDirection.x = 0;
+        }
+
+        //Moves the bat down
+        if (transform.position.y > PlayerController.playerPos.y)
+        {
+            moveDirection.y = -1;
+        }
+        //Moves the bat up
+        else if (transform.position.y < PlayerController.playerPos.y)
+        {
+            moveDirection.y = 1;
+        }
+        else
+        {
+            moveDirection.y = 0;
+        }
+    }
 
     /// <summary>
     /// When resetting the bat, isChasing will no longer be true

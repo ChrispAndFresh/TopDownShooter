@@ -12,7 +12,7 @@ public class Skeleton : Enemy
 {
     bool canMove; //Controls if the skeleton can move or not
     Vector3 direction; //Controls which direction the skeleton is moving
-    Rigidbody rb; //Reference to enemies rigidbody for movement
+    Rigidbody rb; //Reference to enemy's rigidbody for movement
 
     public GameObject bonePrefab; //Reference to the projectile the skeleton throws
     public float pauseTime; //How long the skeleton pauses before throwing projectile and moving again
@@ -22,6 +22,7 @@ public class Skeleton : Enemy
 
     void Awake()
     {
+        //Set position, health, and isActive
         SetStartingValues();
 
         //Changes skeleton's direction every 1 second
@@ -35,8 +36,7 @@ public class Skeleton : Enemy
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         //Checks if the skeleton has been activated and can move
         if (isActive && canMove)
@@ -45,7 +45,6 @@ public class Skeleton : Enemy
             rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
         }
     }
-
 
     /// <summary>
     /// Picks a random direction to move on an xy-plane
@@ -79,8 +78,12 @@ public class Skeleton : Enemy
     /// </summary>
     void ThrowBone()
     {
-        //Cant start a coroutine in a InvokeRepeating I guess
-        StartCoroutine(Bone());
+        //Only throw bones if active
+        if (isActive)
+        {
+            //Cant start a coroutine in a InvokeRepeating I guess
+            StartCoroutine(Bone());
+        }
     }
     
 
@@ -92,7 +95,6 @@ public class Skeleton : Enemy
         //If skeleton is active, throw projectile
         if (isActive)
         {
-            print("Bone thrown");
             //Skeleton stops moving
             canMove = false;
 
@@ -108,7 +110,6 @@ public class Skeleton : Enemy
         //If skeleton is inactive, do nothing
         else
         {
-            print("bone not thrown");
             yield return new WaitForSeconds(0f);
         }
 
