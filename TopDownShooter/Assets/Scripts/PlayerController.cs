@@ -23,11 +23,14 @@ public class PlayerController : MonoBehaviour
 
     public static Vector3 playerPos; //Refernce to the player's position for enemies
 
+    public GameObject knightSprite; //Used to flip the sprite to stay consistant
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         healthOnUI.UpdateHealthOnUI(health);
+        knightSprite.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
     }
 
     // Update is called once per frame
@@ -35,8 +38,9 @@ public class PlayerController : MonoBehaviour
     { 
         RotatePlayer();
         playerPos = transform.position;
-    }
 
+        rb.velocity = Vector3.zero;
+    }
 
     private void FixedUpdate()
     {
@@ -133,15 +137,17 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //If player is rotated between 90 and 180 degrees, flip gun
+        //If player is rotated between 90 and 180 degrees, flip gun and knight
         if (transform.localEulerAngles.z <= 270 && transform.localEulerAngles.z >= 90)
         {
             gunSlot.localEulerAngles = new Vector3(180f, 0f, 0f);
+            knightSprite.transform.localEulerAngles = new Vector3(0f, 0f, -angle);
         }
-        //If player is rotated between 90 and -90 degrees, unfip gun
+        //If player is rotated between 90 and -90 degrees, unfip gun and knight
         else
         {
             gunSlot.localEulerAngles = new Vector3(0f, 0f, 0f);
+            knightSprite.transform.localEulerAngles = new Vector3(0f, 180f, angle);
         }
     }
 
@@ -157,6 +163,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Healing 
+    /// </summary>
+    /// <param name="healing"></param>
     public void GetHealed(int healing)
     {
         health += healing;
@@ -170,16 +180,15 @@ public class PlayerController : MonoBehaviour
         healthOnUI.UpdateHealthOnUI(health);
     }
 
+
     /// <summary>
     /// Increases the max HP of the player
     /// </summary>
     public void IncreaseHealth()
     {
-
         maxHealth += 2;
         health = maxHealth;
         healthOnUI.UpdateHealthOnUI(health);
-
     }
 
 
