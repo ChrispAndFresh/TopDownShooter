@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     public bool isActive; //Determines if enemy is active or not
 
-    //public Transform playerPosition; //Reference to player's location when enemy is active
+    public RoomManager roomManager; //Reference to the enemies' room's RoomManager
 
     public void SetStartingValues()
     {
@@ -75,7 +75,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        //Disables enemy
         gameObject.SetActive(false);
+        //Checks if room should spawn item
+        roomManager.SpawnItem();
+
     }
 
 

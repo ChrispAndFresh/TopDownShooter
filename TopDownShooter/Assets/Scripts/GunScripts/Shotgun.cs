@@ -29,6 +29,4 @@ public class Shotgun : GunBase
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
-
-
 }

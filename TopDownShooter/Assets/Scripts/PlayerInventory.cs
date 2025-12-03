@@ -62,7 +62,19 @@ public class PlayerInventory : MonoBehaviour
         {
             StartCoroutine(Interact());
         }
-       
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (gunInventory[currentIndex].GetComponent<Shotgun>())
+            {
+                print("Shotgun in hand");
+            }
+            else
+            {
+                print("Shotgun not in hand");
+            }
+
+        }
     }
 
 
@@ -380,5 +392,28 @@ public class PlayerInventory : MonoBehaviour
 
         //Player is no longer interacting with objects
         interacting = false;
+    }
+
+
+
+    /// <summary>
+    /// Checks if the player has the shotgun in their inventory
+    /// </summary>
+    /// <returns></returns>
+    public bool ShotgunCheck()
+    {
+        bool hasShotgun = false;
+
+        //Cycles through player inventory
+        for (int i = 0; i < gunInventory.Length; i++)
+        {
+            //If any of the guns are the shotgun, set hasShotgun to true
+            if (gunInventory[i].GetComponent<Shotgun>())
+            {
+                hasShotgun = true;
+            }
+        }
+
+        return hasShotgun;
     }
 }

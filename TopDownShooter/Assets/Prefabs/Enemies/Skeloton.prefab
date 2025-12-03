@@ -128,10 +128,11 @@ MonoBehaviour:
   ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}
   startingPos: {x: 0, y: 0, z: 0}
   isActive: 0
-  bonePrefab: {fileID: 0}
-  pauseTime: 0
-  directionDelay: 0
-  projectileDelay: 0
+  roomManager: {fileID: 0}
+  bonePrefab: {fileID: 1900532032362444146, guid: 2f6151f27a851db438912cd4f2a6f59d, type: 3}
+  pauseTime: 1
+  directionDelay: 5
+  projectileDelay: 5
 --- !u!54 &4049201144220309442
 Rigidbody:
   m_ObjectHideFlags: 0

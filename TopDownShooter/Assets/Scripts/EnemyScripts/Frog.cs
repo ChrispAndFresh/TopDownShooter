@@ -34,24 +34,30 @@ public class Frog : Enemy
     {
         if (isDropping)
         {
+            //Checks if the frog is above the shadow
             if (transform.position.y > (shadow.gameObject.transform.position.y + 1))
             {
                 rb.MovePosition(transform.position + Vector3.down * speed * Time.deltaTime);
             }
 
+            //If the frog is on its shadow, drop no longer
             else if (transform.position.y <= shadow.gameObject.transform.position.y)
             {
                 isDropping = false;
+                GetComponent<BoxCollider>().enabled = true; //Frog can be hit when it lands
             }
         }
 
         if (isRising)
         {
+            //Checks if the frog is below its max point
             if (transform.position.y < maxPoint.y)
             {
+                GetComponent<BoxCollider>().enabled = false; //Frog can not be hit when it rises
                 rb.MovePosition(transform.position + Vector3.up * speed * Time.deltaTime);
             }
 
+            //IF the frog is at its max point, rise no longer
             else if (transform.position.y >= maxPoint.y)
             {
                 isRising = false;

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5627282127771152373
+--- !u!1 &2609528361075242572
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4808155689944206806}
-  - component: {fileID: 2092215366346818841}
-  - component: {fileID: 8835766905477798615}
-  - component: {fileID: 1306615235337979762}
-  - component: {fileID: 5577008693580191234}
-  - component: {fileID: 5224676895407017217}
-  - component: {fileID: 2965581135585513523}
-  m_Layer: 3
-  m_Name: Room Box
+  - component: {fileID: 390545844262414897}
+  - component: {fileID: 6386108868203813216}
+  - component: {fileID: 7245290381811862069}
+  - component: {fileID: 6245013434015786125}
+  - component: {fileID: 9155650310746253380}
+  - component: {fileID: 7558548863558722681}
+  m_Layer: 0
+  m_Name: MiniBossSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4808155689944206806
+--- !u!4 &390545844262414897
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.5, z: 0}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2092215366346818841
+--- !u!33 &6386108868203813216
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8835766905477798615
+--- !u!23 &7245290381811862069
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -87,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1306615235337979762
+--- !u!65 &6245013434015786125
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -108,43 +107,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5577008693580191234
+--- !u!114 &9155650310746253380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec15f7fd53d30f48b9481cecc3b5aa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesInRoom: []
-  respawnEnemies: []
-  spawnPoints: []
-  roomDrop: {fileID: 1994694595711933582, guid: 18fecfd8f44e1f049815c43632341fb7, type: 3}
---- !u!114 &5224676895407017217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61771867022d3c0439f56b73866e870b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2965581135585513523
+--- !u!114 &7558548863558722681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5627282127771152373}
+  m_GameObject: {fileID: 2609528361075242572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc54f5b6a82c36943b325ea10affe637, type: 3}
+  m_Script: {fileID: 11500000, guid: b9946c7db439622499f5a4626965e48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniBoss: {fileID: 0}
+  spawnPoint: {fileID: 0}
