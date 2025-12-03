@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 
 /*
  * Chris Pimentel 
@@ -45,6 +48,9 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        GameOver();
+
     }
 
     /// <summary>
@@ -191,5 +197,13 @@ public class PlayerController : MonoBehaviour
         healthOnUI.UpdateHealthOnUI(health);
     }
 
+    public void GameOver()
+    {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
 
+    }
+    
 }

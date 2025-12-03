@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Dominic Paxson
+ * 12/2/25
+ * Handles menu and button mechanics
+ */
+
 public class MenuScript : MonoBehaviour
 {
 
