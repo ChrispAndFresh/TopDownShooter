@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Destroys the enemy and possibly drops ammo or health
     /// </summary>
-    private void Die()
+    public virtual void Die()
     {
         int dropSuccess = Random.Range(0, 99);
 

@@ -18,14 +18,23 @@ public class Frog : Enemy
     Rigidbody rb; //Reference to rigidbody for movement
     FrogShadow shadow; //Reference to Frog's shadow for movement
 
+    public GameObject healthIncrease; //Frog will drop a health upgrade upon death
+    public GameObject key; //Frog will drog a key upon death
+
+
     private void Awake()
     {
+        //Sets health, speed, and reset point
+        SetStartingValues();
+
         rb = GetComponent<Rigidbody>();
         shadow = GetComponentInParent<FrogShadow>();
 
         //Sets max point to current point
         maxPoint = gameObject.transform.position;
 
+
+        GetComponent<BoxCollider>().enabled = false; //Frog can not be hit as it starts out dropping
         isDropping = true; //Frog starts out dropping
         isRising = false; //Frog does not start out rising
     }
@@ -41,10 +50,11 @@ public class Frog : Enemy
             }
 
             //If the frog is on its shadow, drop no longer
-            else if (transform.position.y <= shadow.gameObject.transform.position.y)
+            else if (transform.position.y <= shadow.gameObject.transform.position.y + 1)
             {
                 isDropping = false;
                 GetComponent<BoxCollider>().enabled = true; //Frog can be hit when it lands
+                print("Frog is no longer dropping");
             }
         }
 
@@ -94,4 +104,27 @@ public class Frog : Enemy
     {
         return isRising;
     }
+
+
+
+
+    /// <summary>
+    /// When Frog dies, destroy the shadow as well
+    /// </summary>
+    public override void Die()
+    {
+        //Create the health upgrade
+        Instantiate(healthIncrease, shadow.GetSpawnPoint().position + new Vector3(-1f, 0f, 0f), shadow.GetSpawnPoint().rotation);
+        //Create a key
+        Instantiate(key, shadow.GetSpawnPoint().position + new Vector3(1f, 0f, 0f), shadow.GetSpawnPoint().rotation);
+
+        //Destroys shadow
+        Destroy(shadow.gameObject);
+
+        //Disables enemy
+        gameObject.SetActive(false);
+       
+
+    }
+
 }

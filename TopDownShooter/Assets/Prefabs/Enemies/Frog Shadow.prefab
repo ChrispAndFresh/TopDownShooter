@@ -253,6 +253,8 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   isActive: 0
   roomManager: {fileID: 0}
+  healthIncrease: {fileID: 8138835783389927639, guid: 49fb12d6b2069a541ace3338cef4012d, type: 3}
+  key: {fileID: 1994694595711933582, guid: 18fecfd8f44e1f049815c43632341fb7, type: 3}
 --- !u!54 &1456372784258274609
 Rigidbody:
   m_ObjectHideFlags: 0

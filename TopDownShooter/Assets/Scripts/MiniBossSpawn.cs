@@ -23,6 +23,8 @@ public class MiniBossSpawn : MonoBehaviour
             print("Player left room");
          
             minibossRoom.AddEnemy(miniBoss, spawnPoint);
+
+            miniBoss = null;
             
         }
     }

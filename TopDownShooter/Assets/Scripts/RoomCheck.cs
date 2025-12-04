@@ -75,12 +75,23 @@ public class RoomCheck : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Adds an enemy to the room
+    /// </summary>
+    /// <param name="newEnemy"></param>
+    /// <param name="spawnPoint"></param>
     public void AddEnemy(Enemy newEnemy, Transform spawnPoint)
     {
-        enemiesInRoom.Add(Instantiate(newEnemy, spawnPoint.position, spawnPoint.rotation));
+        if (newEnemy != null)
+        {
+            enemiesInRoom.Add(Instantiate(newEnemy, spawnPoint.position, spawnPoint.rotation));
+        }
+    
     }
 
-    //Spawns an item when called
+    /// <summary>
+    /// Spawns an item when called
+    /// </summary>
     public void SpawnItem()
     {
         if (roomDrop != null)
