@@ -19,27 +19,38 @@ public class WallDoorScript : MonoBehaviour
 
     private void Update()
     {
-        /*
+
         //If the first door needs to move on the x or y axis then move.
-        if (doorScript.MoveX1 == true)
+        if (doorScript.openMoveX1P == true)
         {
-            if (transform.position.x)
+            if (doorScript.leverscript.Active)
+            {
+                print("Joe");
+            }
+
+
+
         }
-        else if (doorScript.MoveY1 == true)
+        else if (doorScript.openMoveX1N == true)
         {
+            if (doorScript.leverscript.Active)
+            {
+                print("Joe");
+            }
 
         }
         //If the door doesn't need to move then don't
         else
         {
 
+
         }
         //If the second door needs to move on the x or y axis then move.
-        if (doorScript.MoveX2 == true)
+        if (doorScript.openMoveY1P == true)
         {
 
         }
-        else if (doorScript.MoveY2 == true)
+        else if (doorScript.openMoveY1N == true)
         {
 
         }
@@ -50,7 +61,7 @@ public class WallDoorScript : MonoBehaviour
 
 
 
-*/
+
     }
 
 }

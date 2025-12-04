@@ -13,6 +13,7 @@ Handles the opening and closing of special wall-doors.
 
 public class DoorScript : MonoBehaviour
 {
+    public Lever leverscript;
 
     public GameObject door1;
     public GameObject door2;
@@ -43,6 +44,7 @@ public class DoorScript : MonoBehaviour
     /// </summary>
     public void Open()
     {
+
         //Checks if the first door needs to move on the x or y postiion to open.
         if (door1.transform.position.x > moveP1.transform.position.x)
         {
