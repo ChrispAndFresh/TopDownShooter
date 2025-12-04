@@ -20,8 +20,12 @@ public class FrogShadow : MonoBehaviour
 
     private Frog frog; //Reference to the frog enemy
 
+    private Transform spawnPoint; //Reference to where the frog spawns to drop items
+
     void Awake()
     {
+        spawnPoint = transform;
+
         frog = GetComponentInChildren<Frog>();
 
         moving = false;
@@ -72,6 +76,16 @@ public class FrogShadow : MonoBehaviour
 
         //Frog drops down
         frog.SetDropToTrue();
+    }
+
+
+    /// <summary>
+    /// Get the spawnpoint from the shadow
+    /// </summary>
+    /// <returns></returns>
+    public Transform GetSpawnPoint()
+    {
+        return spawnPoint;
     }
 
 }
