@@ -118,11 +118,11 @@ public class Frog : Enemy
         //Create a key
         Instantiate(key, shadow.GetSpawnPoint().position + new Vector3(1f, 0f, 0f), shadow.GetSpawnPoint().rotation);
 
-        //Destroys shadow
-        Destroy(shadow.gameObject);
+        //Kills the shadow as well
+        shadow.Die();
 
         //Disables enemy
-        gameObject.SetActive(false);
+        Destroy(gameObject);
        
 
     }

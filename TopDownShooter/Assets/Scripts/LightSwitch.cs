@@ -16,11 +16,12 @@ public class LightSwitch : MonoBehaviour
     //Determines if a switch has been activated or not
     private bool isActivated;
 
-    //Material that the switch will swap to when activated
-    public Material greenLight;
+    //Reference to object to turn on and off for looks
+    public SpriteRenderer torchSprite;
 
     private void Start()
     {
+        torchSprite.gameObject.SetActive(false); //Lit sprite is inactive until torch is activated
         isActivated = false; //Switch does not start active
     }
 
@@ -41,8 +42,8 @@ public class LightSwitch : MonoBehaviour
 
     void ActivateSwitch()
     {
-        //Material Swap to indicate activation
-        GetComponent<Renderer>().material = greenLight;
+        //Lit sprite is active when switch is activated
+        torchSprite.gameObject.SetActive(true); 
 
         //Light up a light
         wall.LightUpLight();
