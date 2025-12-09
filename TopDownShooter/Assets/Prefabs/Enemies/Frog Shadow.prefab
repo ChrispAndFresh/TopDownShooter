@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7965684475252969819}
   - component: {fileID: 1665861569828605121}
   - component: {fileID: 4214906435716006863}
-  - component: {fileID: -4889277876316501558}
   m_Layer: 0
   m_Name: Frog Shadow
   m_TagString: Untagged
@@ -102,28 +101,7 @@ MonoBehaviour:
   JumpWaitTime: 10
   followTime: 5
   speed: 3
---- !u!114 &-4889277876316501558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157918048466035363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8938e1fafb8a4d4da6fd30d356873f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100000000
-  maxHealth: 0
-  contactDamage: 0
-  dropRate: 0
-  speed: 0
-  healthDrop: {fileID: 5505103852017097608, guid: b532820158fa4f44e9f57b381e471a0f, type: 3}
-  ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}
-  startingPos: {x: 0, y: 0, z: 0}
-  isActive: 0
-  roomManager: {fileID: 0}
+  room: {fileID: 0}
 --- !u!1 &4252955222716753496
 GameObject:
   m_ObjectHideFlags: 0

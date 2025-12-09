@@ -22,6 +22,8 @@ public class FrogShadow : MonoBehaviour
 
     private Transform spawnPoint; //Reference to where the frog spawns to drop items
 
+    public MiniBossRoomManager room; //Refernce to the room the miniboss is in
+
     void Awake()
     {
         spawnPoint = transform;
@@ -88,4 +90,11 @@ public class FrogShadow : MonoBehaviour
         return spawnPoint;
     }
 
+
+    public void Die()
+    {
+        room.RemoveWalls();
+
+        Destroy(gameObject);
+    }
 }
