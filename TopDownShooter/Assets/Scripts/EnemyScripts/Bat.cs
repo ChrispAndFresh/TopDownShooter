@@ -29,6 +29,7 @@ public class Bat : Enemy
     private void Update()
     {
         PickDirectionToMove();
+        Activation();
     }
 
     private void FixedUpdate()

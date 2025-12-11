@@ -36,6 +36,12 @@ public class Skeleton : Enemy
         rb = GetComponent<Rigidbody>();
     }
 
+
+    private void Update()
+    {
+        Activation();
+    }
+
     private void FixedUpdate()
     {
         //Checks if the skeleton has been activated and can move

@@ -122,7 +122,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 10
   contactDamage: 1
-  dropRate: 5
+  dropRate: 40
   speed: 6
   healthDrop: {fileID: 5505103852017097608, guid: b532820158fa4f44e9f57b381e471a0f, type: 3}
   ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}

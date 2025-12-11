@@ -33,11 +33,23 @@ public class Enemy : MonoBehaviour
     }
 
 
+    /*
     private void OnBecameVisible()
     {
         print("Enemy is VIsible");
         isActive = true;
     }
+    */
+
+
+    public void Activation()
+    {
+        if ((Vector3.Distance(transform.position, PlayerController.playerPos)) <= 10)
+        {
+            isActive = true;
+        }
+    }
+
 
     /// <summary>
     /// Takes health away from enemy
@@ -49,6 +61,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            print("Enemy Health reach 0");
             Die();
         }
     }

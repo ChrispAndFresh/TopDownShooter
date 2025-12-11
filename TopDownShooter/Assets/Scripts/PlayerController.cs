@@ -24,9 +24,15 @@ public class PlayerController : MonoBehaviour
     public int health; //Health of the player
     public int maxHealth; //Maximum health of the player
 
+    private bool canBeDamaged; //Determines if the player can be damaged or not
+    private bool isBlinking; //Determines if the player is blinking or not
+    public float iframeTime; //How long the player is invunerable for after getting hit
+
     public static Vector3 playerPos; //Refernce to the player's position for enemies
 
     public GameObject knightSprite; //Used to flip the sprite to stay consistant
+
+    public int gameOverSceneIndex; //Index for the game over scene
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,8 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
         healthOnUI.UpdateHealthOnUI(health);
         knightSprite.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+        canBeDamaged = true;
+        isBlinking = false;
     }
 
     // Update is called once per frame
@@ -43,14 +51,13 @@ public class PlayerController : MonoBehaviour
         playerPos = transform.position;
 
         rb.velocity = Vector3.zero;
+
+        Blink();
     }
 
     private void FixedUpdate()
     {
         Move();
-
-        GameOver();
-
     }
 
     /// <summary>
@@ -164,8 +171,18 @@ public class PlayerController : MonoBehaviour
     /// <param name="damage"></param>
     public void GetDamaged(int damage)
     {
-        health -= damage;
-        healthOnUI.UpdateHealthOnUI(health);
+        if (canBeDamaged)
+        {
+            health -= damage;
+            healthOnUI.UpdateHealthOnUI(health);
+
+            if (health <= 0)
+            {
+                SceneManager.LoadScene(gameOverSceneIndex);
+            }
+
+            StartCoroutine(WaitToBeDamaged());
+        }
     }
 
 
@@ -197,13 +214,47 @@ public class PlayerController : MonoBehaviour
         healthOnUI.UpdateHealthOnUI(health);
     }
 
-    public void GameOver()
-    {
-        if (health <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
 
+    /// <summary>
+    /// Stops the player from being damaged for a time
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator WaitToBeDamaged()
+    {
+        //Player can no longer be damaged
+        canBeDamaged = false;
+        //Player blinks to indicate iframes
+        isBlinking = true;
+        StartCoroutine(Blink());
+
+
+        //Player is invincible for "iframeTime" seconds
+        yield return new WaitForSeconds(iframeTime);
+
+        //Player can now be damaged
+        canBeDamaged = true;
+        //Player no longer blinks
+        isBlinking = false;
     }
-    
+
+    /// <summary>
+    /// Causes the player's mesh to blink
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator Blink()
+    {
+        for (int i = 0; isBlinking; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GetComponentInChildren<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                GetComponentInChildren<SpriteRenderer>().enabled = true;
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
+    }
 }

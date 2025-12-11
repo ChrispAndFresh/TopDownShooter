@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 /*
  * Chris Pimentel
@@ -113,10 +114,7 @@ public class Frog : Enemy
     /// </summary>
     public override void Die()
     {
-        //Create the health upgrade
-        Instantiate(healthIncrease, shadow.GetSpawnPoint().position + new Vector3(-1f, 0f, 0f), shadow.GetSpawnPoint().rotation);
-        //Create a key
-        Instantiate(key, shadow.GetSpawnPoint().position + new Vector3(1f, 0f, 0f), shadow.GetSpawnPoint().rotation);
+        print("Frog Dies");
 
         //Kills the shadow as well
         shadow.Die();
@@ -124,7 +122,6 @@ public class Frog : Enemy
         //Disables enemy
         Destroy(gameObject);
        
-
     }
 
 }

@@ -133,7 +133,7 @@ MonoBehaviour:
   chamberAmmoMax: 10
   ammoCount: 0
   ammoMax: 100
-  cooldownTime: 0.5
+  cooldownTime: 0.3
   canFire: 1
   bulletPrefab: {fileID: 6988199175642545634, guid: a0e4467aa499cba4bb82ac5adecf6325, type: 3}
   firePoint: {fileID: 6352019004230036264}

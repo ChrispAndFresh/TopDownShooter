@@ -48,6 +48,8 @@ public class Darknut : Enemy
 
     private void Update()
     {
+        Activation();
+
         //Gets the vector between player and enemy
         Vector3 directionToPlayer = PlayerController.playerPos - transform.position;
 

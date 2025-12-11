@@ -43,7 +43,7 @@ public class LightSwitch : MonoBehaviour
     void ActivateSwitch()
     {
         //Lit sprite is active when switch is activated
-        torchSprite.gameObject.SetActive(true); 
+        torchSprite.gameObject.SetActive(true);
 
         //Light up a light
         wall.LightUpLight();

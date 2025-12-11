@@ -119,8 +119,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8020199760749495389}
-  - {fileID: 5637902755134927656}
   - {fileID: 2880912063635475909}
+  - {fileID: 5637902755134927656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3166727335710604185
@@ -212,7 +212,9 @@ MonoBehaviour:
   healthOnUI: {fileID: 0}
   health: 0
   maxHealth: 6
+  iframeTime: 5
   knightSprite: {fileID: 5626553653979671356}
+  gameOverSceneIndex: 0
 --- !u!54 &3203867054415528036
 Rigidbody:
   m_ObjectHideFlags: 0

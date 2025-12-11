@@ -123,12 +123,13 @@ MonoBehaviour:
   health: 0
   maxHealth: 20
   contactDamage: 1
-  dropRate: 10
+  dropRate: 40
   speed: 1
   healthDrop: {fileID: 5505103852017097608, guid: b532820158fa4f44e9f57b381e471a0f, type: 3}
   ammoDrop: {fileID: 3180612273775530522, guid: 49869958acce2b74bae29703916658f6, type: 3}
   startingPos: {x: 0, y: 0, z: 0}
   isActive: 0
+  roomManager: {fileID: 0}
   turnCooldown: 1
 --- !u!54 &5606287735617421602
 Rigidbody:

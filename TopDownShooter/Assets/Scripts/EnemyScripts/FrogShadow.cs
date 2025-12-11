@@ -91,10 +91,25 @@ public class FrogShadow : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Destroys walls blocking room when frog dies
+    /// </summary>
     public void Die()
     {
+        room.SpawnItems();
         room.RemoveWalls();
-
+        
         Destroy(gameObject);
     }
+
+
+    /// <summary>
+    /// Passes a reference to a RoomManager to the frog enemy to avoid jank
+    /// </summary>
+    /// <param name="roomCheck"></param>
+    public void PassRoomToFrog(RoomManager roomManager)
+    {
+        frog.roomManager = roomManager;
+    }
+
 }
